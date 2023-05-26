@@ -4,7 +4,7 @@
 
 The Sales Regional Reporting Tool is an Excel template with a VBA program designed to streamline and automate the monthly reporting process for a Sales Controller working at a construction company that owns four subsidiary companies across the USA and Europe. The tool addresses the challenge of **consolidating data from multiple sources**, **generating interactive Pivot-based regional reports for managers**, **creating a hardcoded regional overview report for top management**, and **exporting data as a CSV file for uploading to the central ERP system**.
 
-![Automation Demo](./"Input Sales Reports"/ReportingTool.gif)
+![Automation Demo](./Input20%Sales20%Reports/ReportingTool.gif)
 
 ## Project Description
 
