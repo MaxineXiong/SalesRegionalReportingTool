@@ -2,11 +2,15 @@
 [![GitHub][github_badge]][github_link]
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Sales Regional Reporting Tool
-
 The Sales Regional Reporting Tool is an Excel template with a VBA program designed to streamline and automate the monthly reporting process for a Sales Controller working at a construction company that owns four subsidiary companies across the USA and Europe. The tool addresses the challenge of **consolidating data from multiple sources**, **generating interactive Pivot-based regional reports for managers**, **creating a hardcoded regional overview report for top management**, and **exporting data as a CSV file for uploading to the central ERP system**.
 
-## Repo Structure
+![Automation Demo](path/to/your/gif/image.gif)
+
+## Project Description
+
+The Sales Regional Reporting Tool simplifies the reporting process by automating various tasks. It allows users to consolidate data from multiple sources, map codes to descriptions, and generate comprehensive reports tailored for regional managers and top management, with only a few clicks. The tool can save significant time of more than 4 hours and reduces the risk of manual errors associated with repetitive tasks.
+
+## Repository Structure
 
 The Sales Regional Reporting Tool repository is structured as follows:
 
