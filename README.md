@@ -21,6 +21,8 @@ The Sales Regional Reporting Tool repository is structured as follows:
 - **Input Sales Reports**: This folder contains individual sales reports across the USA and Europe. These reports serve as test data for the program.
 
 - **Sample Output Reports**: This folder contains three types of sample output reports that can be generated from the reporting program. These reports showcase the formatting and layout of the generated reports.
+- **README.md**: Provides an overview of this repository.
+- **LICENSE**: The license file for the project.
 
 ## Getting Started
 
