@@ -319,7 +319,7 @@ End Sub
 
 
 Sub ExportAsCSV()
-'STEP 4: Extra all data as CSV file with custom delimiter
+'STEP 4: Export all data as CSV file with custom delimiter
     Dim sep As String
     Dim NewDataTable As ListObject
     Dim row As String
