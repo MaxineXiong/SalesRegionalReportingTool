@@ -21,21 +21,24 @@ The Sales Regional Reporting Tool repository is structured as follows:
 - **Input Sales Reports**: This folder contains individual sales reports across the USA and Europe. These reports serve as test data for the program.
 
 - **Sample Output Reports**: This folder contains three types of sample output reports that can be generated from the reporting program. These reports showcase the formatting and layout of the generated reports.
+
 - **README.md**: Provides an overview of this repository.
+
 - **LICENSE**: The license file for the project.
 
 ## Getting Started
 
 1. Clone or download the Sales Regional Reporting Tool from this repository.
 2. Open the **Monthly_Sales_Reporting_Template_Tool.xlsm** file to access the Sales Regional Reporting Tool.
-3. Enable macros if prompted and follow the provided step-by-step instructions to run macros one-by-one within the workbook.
+3. Enable macros if prompted and follow the provided step-by-step instructions to run macros one by one within the workbook.
 4. Explore the interactive Pivot reports, hardcoded regional overview reports, and CSV export functionality.
-5. Customize the tool according to your company's specific requirements and data sources.
+5. Customize the tool according to your company's specific requirements and data sources. You can modify the workbook or edit the VBA code to tailor the tool to your needs. To edit the VBA code, open the VBA editor by pressing `Alt + F11` key. This will provide access to the underlying VBA code that powers the tool, allowing you to make changes and adjustments as necessary. To access the code related to a particular form control button, right-click the button and choose "Assign Macro" -> "Edit". This will open the VBA editor directly to the code associated with the button, allowing you to modify its functionality.
 6. Utilize the tool to streamline your monthly reporting process, save time, and enhance efficiency.
 
 ## Requirements
 
 - Microsoft Excel (version 2010 or later) with macros enabled.
+- Basic knowledge of VBA and Microsoft Excel is recommended to make modifications to the tool.
 
 ## Contributing
 
