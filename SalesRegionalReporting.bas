@@ -33,7 +33,9 @@ Sub Hide_Unhide_Sheets()
     
     myPassword = "maxine"
     
+    'Prompt the user to enter a password to toggle access
     InputPassword = InputBox("Enter password to toggle access")
+    
     If InputPassword = "" Then
         Exit Sub
     ElseIf InputPassword <> myPassword Then
@@ -41,19 +43,23 @@ Sub Hide_Unhide_Sheets()
         Exit Sub
     Else
         Application.ScreenUpdating = False
-            If shIntro.Visible = xlSheetVisible Then
-                For Each sh In ThisWorkbook.Sheets
-                    If sh.Name <> "Start" And sh.Name <> "Workings" Then
-                        sh.Visible = xlSheetVeryHidden
-                    End If
-                Next sh
-            Else
-                For Each sh In ThisWorkbook.Sheets
-                    If sh.Name <> "Start" And sh.Name <> "Workings" Then
-                        sh.Visible = xlSheetVisible
-                    End If
-                Next sh
-            End If
+        
+        'If the shIntro sheet is visible, hide all other sheets except for Start and Workings
+        If shIntro.Visible = xlSheetVisible Then
+            For Each sh In ThisWorkbook.Sheets
+                If sh.Name <> "Start" And sh.Name <> "Workings" Then
+                    sh.Visible = xlSheetVeryHidden
+                End If
+            Next sh
+        Else
+            'If the shIntro sheet is not visible, unhide all sheets except for Start and Workings
+            For Each sh In ThisWorkbook.Sheets
+                If sh.Name <> "Start" And sh.Name <> "Workings" Then
+                    sh.Visible = xlSheetVisible
+                End If
+            Next sh
+        End If
+            
         Application.ScreenUpdating = True
     End If
     
@@ -75,6 +81,8 @@ Sub ImportData()
     Dim NewDataTable As ListObject
      
     On Error GoTo ErrorHandler
+    
+    'Prompt the user to select data files to import
     InputFiles = Excel.Application.GetOpenFilename(FileFilter:="Excel Files (*.xlsx), *.xlsx", _
             Title:="Select Data Files to Import", MultiSelect:=True)
               
@@ -84,9 +92,13 @@ Sub ImportData()
     End With
     
     If IsArray(InputFiles) Then
-        'Paste headers from the first selected file into shNewDat
+        'Open the first selected file
         Set wb = Workbooks.Open(InputFiles(1))
+        
+        'Set the first header as CompanyID
         shNewDat.Range("A1").Value = "CompanyID"
+        
+        'Paste headers from the first selected file into shNewDat
         wb.Sheets("Sales").Range("B4", wb.Sheets("Sales").Range("B4").End(xlToRight).Address).Copy
         shNewDat.Range("B1").PasteSpecial xlPasteValuesAndNumberFormats
         shNewDat.Range("A1", shNewDat.Range("A1").End(xlToRight).Address).PasteSpecial xlPasteFormats
@@ -164,13 +176,15 @@ Sub UpdateWorkings()
     Else
         NewDataTable.Range.AutoFilter Field:=1, Criteria1:="<>*US", Operator:=xlAnd
     End If
+    
     'Copy filtered data and paste to TableTemp
     NewDataTable.DataBodyRange.SpecialCells(xlCellTypeVisible).Copy
     shRegion.Range("A2").PasteSpecial xlPasteValuesAndNumberFormats
+    
     'Remove filter from NewDataTable
     NewDataTable.Range.AutoFilter Field:=1
     
-    'Refresh all pivot tables
+    'Refresh all pivot tables in the workbook
     ThisWorkbook.RefreshAll
     
     MsgBox "Reporting tables and charts successfully updated!", vbInformation, "Reports Updated"
@@ -213,7 +227,7 @@ Sub RM_Report()
         .SlicerCaches("Slicer_Company_Name").PivotTables.RemovePivotTable _
             (.Sheets(1).PivotTables("PTReject"))
         
-        'change each pivot table's data source to the local TableTemp
+        'Change each pivot table's data source to the local TableTemp
         Set PT1 = .Sheets(1).PivotTables(1)
         PT1.ChangePivotCache .PivotCaches.Create(xlDatabase, "TableTemp")
         
@@ -236,7 +250,7 @@ Sub RM_Report()
         'Rename the sheet by period
         .Sheets(1).Name = shRegion.Range("period").Value
         
-        'Save and close
+        'Save and close the output workbook
         .SaveAs RMpath
         .Close
     End With
@@ -260,7 +274,7 @@ Sub TM_Report()
     
     Application.ScreenUpdating = False
     
-    'File path to Regional Management Report
+    'File path to Top Management Report
     TMPath = ThisWorkbook.Path & "\TM_" & shRegion.Range("period").Value & shStart.AxRegion.Value & "_" _
              & Format(Date, "ddmmyyyy") & Format(Time, "hhmmss") & ".xlsx"
     
@@ -278,7 +292,7 @@ Sub TM_Report()
         .Interior.ColorIndex = 55
     End With
     
-    'Copy PTManager into the new workbook as hardcoded table
+    'Copy PTManager into the new workbook as a hardcoded table
     shRegion.PivotTables("PTManager").TableRange1.Copy
     With TMwb.Sheets(1).Range("A3")
         .PasteSpecial xlPasteValuesAndNumberFormats
@@ -288,7 +302,7 @@ Sub TM_Report()
     
     'Rename the sheet by period
     TMwb.Sheets(1).Name = shRegion.Range("period").Value
-    'Save and close
+    'Save and close the output workbook
     TMwb.SaveAs TMPath
     TMwb.Close
     
@@ -313,8 +327,10 @@ Sub ExportAsCSV()
     Dim c As Byte
     Dim CSVpath As String
     
+    'Prompt the user to specify the delimiter for separating data in the CSV output
     sep = InputBox("Please specify the delimiter to separate data in the CSV output:", "Specify Delimiter", ",")
     
+    'Create the file path for the CSV file based on the region, period, and timestamp
     CSVpath = ThisWorkbook.Path & "\" & shRegion.Range("period").Value & "_" & shStart.AxRegion.Value & "_" _
              & Format(Date, "ddmmyyyy") & Format(Time, "hhmmss") & ".csv"
     
@@ -325,6 +341,7 @@ Sub ExportAsCSV()
             For r = 1 To NewDataTable.ListRows.Count
                 row = ""
                 For c = 1 To NewDataTable.ListColumns.Count
+                    'Construct each row with the specified delimiter
                     row = row & sep & NewDataTable.DataBodyRange(r, c)
                 Next c
                 row = Right(row, Len(row) - 1)
