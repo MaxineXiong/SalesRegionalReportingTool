@@ -2,13 +2,19 @@
 [![GitHub][github_badge]][github_link]
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<br/>
+
 The Sales Regional Reporting Tool is an Excel template with a VBA program designed to streamline and automate the monthly reporting process for a Sales Controller working at a construction company that owns four subsidiary companies across the USA and Europe. The tool addresses the challenge of **consolidating data from multiple sources**, **generating interactive Pivot-based regional reports for managers**, **creating a hardcoded regional overview report for top management**, and **exporting data as a CSV file for uploading to the central ERP system**.
 
 ![Automation Demo](./Input%20Sales%20Reports/ReportingTool.gif)
 
+<br/>
+
 ## Project Description
 
 The Sales Regional Reporting Tool simplifies the reporting process by automating various tasks. It allows users to consolidate data from multiple sources, map codes to descriptions, and generate comprehensive reports tailored for regional managers and top management, with only a few clicks. The tool can save significant time of more than 4 hours and reduces the risk of manual errors associated with repetitive tasks.
+
+<br/>
 
 ## Repository Structure
 
@@ -26,6 +32,8 @@ The Sales Regional Reporting Tool repository is structured as follows:
 
 - **LICENSE**: The license file for the project.
 
+<br/>
+
 ## Getting Started
 
 1. Clone or download the Sales Regional Reporting Tool from this repository.
@@ -35,18 +43,26 @@ The Sales Regional Reporting Tool repository is structured as follows:
 5. Customize the tool according to your company's specific requirements and data sources. You can modify the workbook or edit the VBA code to tailor the tool to your needs. To edit the VBA code, open the VBA editor by pressing `Alt + F11` key. This will provide access to the underlying VBA code that powers the tool, allowing you to make changes and adjustments as necessary. To access the code related to a particular form control button, right-click the button and choose "Assign Macro" -> "Edit". This will open the VBA editor directly to the code associated with the button, allowing you to modify its functionality.
 6. Utilize the tool to streamline your monthly reporting process, save time, and enhance efficiency.
 
+<br/>
+
 ## Requirements
 
 - Microsoft Excel (version 2010 or later) with macros enabled.
 - Basic knowledge of VBA and Microsoft Excel is recommended to make modifications to the tool.
 
+<br/>
+
 ## Contributing
 
 Contributions to the Sales Regional Reporting Tool are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request.
 
+<br/>
+
 ## License
 
 The Sales Regional Reporting Tool is released under the [MIT License](https://choosealicense.com/licenses/mit/). Feel free to use, modify, and distribute the code in this repository.
+
+<br/>
 
 Simplify your reporting process and drive efficiency with the Sales Regional Reporting Tool.
 
